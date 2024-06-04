@@ -1,0 +1,23 @@
+@defer () {
+    <app-slow clase="bg-pink-600"></app-slow>
+}@placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-purple-50 to-purple-400 animate-pulse">
+        Por favor espere un momento
+    </p>
+}
+
+@defer (on idle) {
+    <app-slow clase="bg-blue-600"></app-slow>
+}@placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-pink-50 to-pink-400 animate-pulse">
+        Por favor espere un momento
+    </p>
+}
+
+@defer (on viewport) {
+    <app-slow clase="bg-green-600"></app-slow>
+}@placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-yellow-50 to-yellow-400 animate-pulse">
+        Por favor espere un momento
+    </p>
+}

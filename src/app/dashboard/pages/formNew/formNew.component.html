@@ -1,0 +1,86 @@
+<div class="bg-screen bg-indigo-100 flex justify-center items-center">
+  <div class="lg:w-2/5 md:w-1/2 w-2/3">
+    <form class="bg-white p-10 rounded-lg shadow-lg min-w-full" [formGroup]="formUser">
+      <h1 class="text-center text-2xl mb-6 text-gray-600 font-bold font-sans">Registro</h1>
+      <div>
+        <label class="text-gray-800 font-semibold block my-3 text-md" for="username">Username</label>
+        <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" formControlName="username"
+          id="username" placeholder="Username" />
+        @if (validate('username')){
+        <small class="p-1 text-red-500">{{ getFieldErrors('username')}}</small>
+        }
+      </div>
+      <div>
+        <label class="text-gray-800 font-semibold block my-3 text-md" for="email">Email</label>
+        <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" formControlName="email"
+          placeholder="@email" />
+        @if (formUser.controls['email'].errors?.['pattern']){
+        <small class="p-1 text-red-500">Email invalido</small>
+        }
+        @else if (formUser.get('email')?.errors && formUser.get('email')?.touched){
+        <small class="p-1 text-red-500">Este campo es requerido</small>
+        }
+      </div>
+      <div>
+        <label class="block mb-2 text-indigo-500" for="password">Password</label>
+        <input class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300" type="text" formControlName="password"
+          id="password" placeholder="password" />
+          @if (validate('password')){
+            <small class="p-1 text-red-500">{{ getFieldErrors('password')}}</small>
+            }
+
+      </div>
+      <div>
+        <label class="block mb-2 text-indigo-500">confirmar Password</label>
+        <input class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300" type="text" formControlName="confirmepassword"
+          id="confirmepassword" placeholder="confirmepassword" />
+          @if (validate('confirmepassword')){
+            <small class="p-1 text-red-500">{{ getFieldErrors('confirmepassword')}}</small>
+            }
+      </div>
+
+      <div>
+        <label class="block mb-2 text-indigo-500" for="matricula">Matricula</label>
+        <input class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300" type="text" formControlName="matricula"
+          id="matricula" placeholder="matricula" />
+          @if (validate('matricula')){
+            <small class="p-1 text-red-500">{{ getFieldErrors('matricula')}}</small>
+            }
+
+      </div>
+      <div>
+        <label class="text-gray-800 font-semibold block my-3 text-md" for="password">Nombre completo</label>
+        <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" formControlName="nombre"
+          id="nombre" placeholder="Nombre" />
+        @if (formUser.controls['nombre'].errors?.['pattern']){
+        <small class="p-1 text-red-500">Formato invalido</small>
+        }
+        @else if (formUser.get('nombre')?.errors && formUser.get('nombre')?.touched){
+        <small class="p-1 text-red-500">Este campo es requerido</small>
+        }
+      </div>
+      <button
+        class="w-full mt-6 mb-3 bg-indigo-100 rounded-lg px-4 py-2 text-lg text-gray-800 tracking-wide font-semibold font-sans">Login</button>
+    </form>
+
+    <div class="bg-slate-300 rounded-lg mt-4 w-full p-3">
+      <h5>Estado del formulario</h5>
+      <hr class="text-gray-600">
+      <h6>Valido??? : {{formUser.valid}}</h6>
+      <br>
+      <h6>Email</h6>
+      <pre>{{formUser.controls['email'].errors | json}}</pre>
+      <h6>Full name</h6>
+      <pre>{{formUser.controls['nombre'].errors | json}}</pre>
+      <h6>username</h6>
+      <pre>{{formUser.controls['username'].errors | json}}</pre>
+      <h6>password</h6>
+      <pre>{{formUser.controls['password'].errors | json}}</pre>
+      <h6>Confirmar password</h6>
+      <pre>{{formUser.controls['confirmepassword'].errors | json}}</pre>
+      <h6>Matriculas</h6>
+      <pre>{{formUser.controls['matricula'].errors | json}}</pre>
+    </div>
+
+  </div>
+</div>

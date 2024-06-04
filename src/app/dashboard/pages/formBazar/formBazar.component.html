@@ -1,0 +1,63 @@
+<div class="max-w-sm mx-auto mt-20 bg-white rounded-md shadow-md overflow-hidden">
+  <div class="px-6 py-4 bg-gray-900 text-white">
+      <h1 class="text-lg font-bold">Bazar</h1>
+  </div>
+  <div class="px-6 py-4" [formGroup]="formBazar">
+
+      <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="name">
+              Name
+          </label>
+          <input formControlName="name"
+              class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="name" type="text" placeholder="">
+              @if (validate('name')) {
+                <small class="p-1 text-red-500">{{ getFieldErrors('name')}}</small>
+              }
+      </div>
+
+      <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="urlimg">
+              URLIMG
+          </label>
+          <input formControlName="urlimg"
+              class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="urlimg" type="text" placeholder="">
+              @if (validate('urlimg')) {
+                <small class="p-1 text-red-500">{{ getFieldErrors('urlimg')}}</small>
+              }
+      </div>
+
+      <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="precio">
+              Precio
+          </label>
+          <input formControlName="precio"
+              class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="precio" type="text" placeholder="">
+              @if (validate('precio')) {
+                <small class="p-1 text-red-500">{{ getFieldErrors('precio')}}</small>
+              }
+      </div>
+
+      <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="precioVenta">
+              Precio de Venta
+          </label>
+          <input formControlName="precioVenta"
+              class="appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text" placeholder="">
+              @if (validate('precioVenta')) {
+                <small class="p-1 text-red-500">{{ getFieldErrors('precioVenta')}}</small>
+              }
+      </div>
+
+      <button (click)="saveProducto()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
+          Guardar
+      </button>
+  </div>
+</div>
+
+<section>
+  <app-formbazar [product]="signal()"></app-formbazar>
+</section>
